@@ -1,9 +1,3 @@
-%global apparmor_profile_name bwrap-userns-restrict
-%if %{pkg_vcmp apparmor-profiles >= 4}
-%bcond_with    apparmor4
-%else
-%bcond_with    apparmor4
-%endif
 Name:           umu-launcher
 Version:        1.1.4
 Release:        1
