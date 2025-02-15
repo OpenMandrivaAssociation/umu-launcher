@@ -6,7 +6,9 @@ Summary:        A tool for launching non-steam games with proton
 License:        GPL-3.0-only
 URL:            https://github.com/Open-Wine-Components/umu-launcher
 Source0:        https://github.com/Open-Wine-Components/umu-launcher/archive/%{version}/%{name}-%{version}.tar.gz
+Source1:        vendor.tar.xz
 
+BuildRequires:  rust-packaging
 BuildRequires:  python-build
 BuildRequires:  pkgconfig(python)
 BuildRequires:  python-filelock
@@ -31,7 +33,7 @@ of the Steam Runtime Tools and Steam Linux Runtime that Valve uses for Proton,
 with some modifications made so that it can be used outside of Steam.
 
 %prep
-%autosetup -p1
+%autosetup -p1 -a1
 
 %build
 ./configure.sh --prefix=%{_prefix} --use-system-pyzstd --use-system-urllib
