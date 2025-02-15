@@ -13,11 +13,14 @@ BuildRequires:  python-filelock
 BuildRequires:  python-hatchling
 BuildRequires:  python-installer
 BuildRequires:  python-xlib
+BuildRequires:  python-zstd
 BuildRequires:  scdoc
 BuildRequires:  zstd
 Requires:       python
 Requires:       python-filelock
 Requires:       python-xlib
+Requires:       python-zstd
+
 BuildArch:      noarch
 
 %description
@@ -29,7 +32,7 @@ with some modifications made so that it can be used outside of Steam.
 %autosetup -p1
 
 %build
-./configure.sh --prefix=%{_prefix}
+./configure.sh --prefix=%{_prefix} --use-system-pyzstd
 %make_build UMU_VERSION=%{version}
 
 %install
