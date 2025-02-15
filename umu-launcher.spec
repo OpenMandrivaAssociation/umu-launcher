@@ -34,6 +34,7 @@ with some modifications made so that it can be used outside of Steam.
 
 %prep
 %autosetup -p1 -a1
+%cargo_prep -v vendor
 
 %build
 ./configure.sh --prefix=%{_prefix} --use-system-pyzstd --use-system-urllib
