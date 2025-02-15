@@ -25,8 +25,6 @@ Requires:       python-xlib
 Requires:       python-urllib3
 Requires:       python-zstd
 
-BuildArch:      noarch
-
 %description
 This is a unified launcher for Windows games on Linux. It is essentially a copy
 of the Steam Runtime Tools and Steam Linux Runtime that Valve uses for Proton,
