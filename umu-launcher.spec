@@ -9,6 +9,7 @@ URL:            https://github.com/Open-Wine-Components/umu-launcher
 Source0:        https://github.com/Open-Wine-Components/umu-launcher/archive/%{version}/%{name}-%{version}.tar.gz
 Source1:        %{name}-%{version}-vendor.tar.gz
 
+BuildRequires:  make
 BuildRequires:  rust-packaging
 BuildRequires:  python-build
 BuildRequires:  pkgconfig(python)
