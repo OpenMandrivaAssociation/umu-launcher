@@ -1,7 +1,7 @@
 %undefine _debugsource_packages
 Name:           umu-launcher
 Version:        1.2.9
-Release:        1
+Release:        2
 Group:          Games
 Summary:        A tool for launching non-steam games with proton
 License:        GPL-3.0-only
