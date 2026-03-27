@@ -1,4 +1,3 @@
-%undefine _debugsource_packages
 Name:           umu-launcher
 Version:        1.4.0
 Release:        1
