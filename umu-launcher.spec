@@ -1,48 +1,42 @@
 %undefine _debugsource_packages
 Name:           umu-launcher
-Version:        1.3.0
+Version:        1.4.0
 Release:        1
 Group:          Games
 Summary:        A tool for launching non-steam games with proton
 License:        GPL-3.0-only
 URL:            https://github.com/Open-Wine-Components/umu-launcher
-Source0:        https://github.com/Open-Wine-Components/umu-launcher/archive/%{version}/%{name}-%{version}.tar.gz
-Source1:        %{name}-%{version}-vendor.tar.gz
+Source0:        %url/archive/%{version}/%{name}-%{version}.tar.gz
+
+BuildArch:      x86_64
 
 BuildRequires:  make
-BuildRequires:  rust-packaging
+BuildRequires:  scdoc
+BuildRequires:  cargo
+BuildRequires:  python
 BuildRequires:  python-build
-BuildRequires:  pkgconfig(python)
-BuildRequires:  python-filelock
 BuildRequires:  python-hatchling
 BuildRequires:  python-installer
-BuildRequires:  python-xlib
+BuildRequires:  python-devel
 BuildRequires:  python-urllib3
+BuildRequires:  python-xlib
 BuildRequires:  python-zstd
-BuildRequires:  scdoc
-BuildRequires:  zstd
+BuildRequires:  python-xxhash
+BuildRequires:  python-cbor2
+BuildRequires:  python-devel
+
 Requires:       python
-Requires:       python-filelock
 Requires:       python-xlib
-Requires:       python-urllib3
-Requires:       python-zstd
+Requires:       python%{pyver}dist(urllib3)
+Requires:       python%{pyver}dist(xxhash)
+Requires:       python%{pyver}dist(zstd)
+Requires:       python%{pyver}dist(cbor2)
 
 %description
-This is a unified launcher for Windows games on Linux. It is essentially a copy
-of the Steam Runtime Tools and Steam Linux Runtime that Valve uses for Proton,
-with some modifications made so that it can be used outside of Steam.
+%summary
 
 %prep
-%autosetup -p1 -a1
-mkdir -p .cargo
-cat >> .cargo/config.toml << EOF
-[source.crates-io]
-replace-with = "vendored-sources"
-
-[source.vendored-sources]
-directory = "vendor"
-
-EOF
+%autosetup -p1
 
 %build
 ./configure.sh --prefix=%{_prefix} --use-system-pyzstd --use-system-urllib
