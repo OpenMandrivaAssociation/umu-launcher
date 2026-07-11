@@ -1,6 +1,6 @@
 %undefine _debugsource_packages
 Name:           umu-launcher
-Version:        1.3.0
+Version:        1.4.1
 Release:        1
 Group:          Games
 Summary:        A tool for launching non-steam games with proton
