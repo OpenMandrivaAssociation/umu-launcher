@@ -1,6 +1,6 @@
 %undefine _debugsource_packages
 Name:           umu-launcher
-Version:        1.4.1
+Version:        1.4.4
 Release:        1
 Group:          Games
 Summary:        A tool for launching non-steam games with proton
@@ -22,10 +22,6 @@ BuildRequires:  python-zstd
 BuildRequires:  scdoc
 BuildRequires:  zstd
 Requires:       python
-Requires:       python-filelock
-Requires:       python-xlib
-Requires:       python-urllib3
-Requires:       python-zstd
 
 %description
 This is a unified launcher for Windows games on Linux. It is essentially a copy
@@ -50,10 +46,11 @@ EOF
 
 %install
 %make_install PYTHONDIR=%{python3_sitelib} UMU_VERSION=%{version} DESTDIR=%{buildroot}
-
+chmod 0644 %{buildroot}%{python3_sitelib}/umu/umu_run.py
 %files
 %license LICENSE
 %doc README.md
 %{_bindir}/umu-run
-%{_datadir}/man/*
+%{_mandir}/man1/umu.1*
+%{_mandir}/man5/umu.5*
 %{python3_sitelib}/umu*
